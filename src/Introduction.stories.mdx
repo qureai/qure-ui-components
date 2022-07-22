@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Introduction" />
+
+
+# Welcome to Qure Components library
+
+This site contains the documentation on library usage into any project, detailed information
+on each and every component usage, its props documents.
+
+For supported components, you will see the UI controls to change its props from this site itself
+
+
+[//]: # (<div className="subheading">Install</div>)
+
+## Install
+
+Add the `.npmrc` in your root directory with following contents.
+This tells `npm install` to use this registry for installing npm packages mentioned in the `package.json`
+and does not affect other projects
+
+```
+registry=https://qurenpm.qure.ai/
+```
+
+Now, ask for the Qure npm creds in `#engineering-core` slack channel,
+someone should get back within hours with credentials to login Qure NPM registry
+
+```
+npm login --registry https://qurenpm.qure.ai/
+```
+
+Now, after successful login, install this library with following command
+
+```
+npm i @qure/qure-components
+```
+
+## How this site is organised
+
+Components are divided into following categories and on sidebar you should see those categories as the headers
+
+* Composite
+* Form elements
+* Layout
+
