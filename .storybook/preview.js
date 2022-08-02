@@ -1,5 +1,6 @@
-import { themes , ThemeProvider} from '@storybook/theming';
-import { select } from '@storybook/addon-controls';
+import "../dist/output.css";
+import { themes, ThemeProvider } from "@storybook/theming";
+import { select } from "@storybook/addon-controls";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -10,15 +11,14 @@ export const parameters = {
     },
   },
   darkMode: {
-    current: 'light',
+    current: "light",
     stylePreview: false,
     // Override the default dark theme
-    dark: { ...themes.dark, appBg: '#222' },
+    dark: { ...themes.dark, appBg: "#222" },
     // Override the default light theme
-    light: { ...themes.normal, appBg: 'white' }
-  }
-}
-
+    light: { ...themes.normal, appBg: "white" },
+  },
+};
 
 // Add a global decorator that will render a dark background when the
 // "Color Scheme" knob is set to dark
@@ -45,4 +45,3 @@ export const parameters = {
 // };
 //
 // export const decorators = [knobDecorator];
-
