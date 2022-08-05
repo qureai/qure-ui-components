@@ -10,6 +10,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  viewMode: "docs",
   darkMode: {
     current: "light",
     stylePreview: false,

@@ -3,7 +3,7 @@ import Card from "../composite/Card";
 import CustomTemplate from "./customTemplate";
 
 export default {
-  title: "Composite/Card",
+  title: "Elements/Card",
   component: Card,
 };
 

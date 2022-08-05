@@ -3,7 +3,7 @@ import Select from "../composite/Select";
 import CustomTemplate from "./customTemplate";
 
 export default {
-  title: "Composite/Select",
+  title: "Elements/Select",
   component: Select,
 };
 

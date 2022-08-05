@@ -1,21 +1,12 @@
-enum SIZE {
-  small,
-  normal,
-  medium,
-  large,
-}
-
-enum VARIANT {
-  primary,
-  primary_light,
-  secondary,
-  text,
-  link,
-}
+import { ReactNode } from "react";
 
 export default interface IButton {
-  label: string;
-  variant: "primary" | "primary_light" | "secondary" | "link";
-  size: "small" | "normal" | "medium" | "large";
+  children: ReactNode;
+  variant?: VARIANTS;
+  size?: SIZES;
   onClick: () => void;
 }
+
+export type VARIANTS = "primary" | "secondary" | "link";
+
+export type SIZES = "small" | "normal" | "medium" | "large";
