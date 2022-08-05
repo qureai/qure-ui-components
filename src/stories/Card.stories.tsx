@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../composite/Button";
 import Card, { Content } from "../composite/Card";
-import { Body, Header, Title, Actions } from "../composite/Card";
+import { Body, Title, Actions } from "../composite/Card";
 import CustomTemplate from "./customTemplate";
 
 export default {
@@ -15,8 +15,8 @@ export const SimpleCard = Template.bind({});
 SimpleCard.args = {
   children: (
     <>
+      <Title>Simple Card</Title>
       <Body>
-        <Title>Simple Card</Title>
         <Content>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque totam
           porro nisi delectus cumque atque ex dolores mollitia eaque

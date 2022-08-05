@@ -20,10 +20,6 @@ const Card = (props: ICard) => {
   );
 };
 
-const Header = ({ children }: { children: React.ReactNode }) => {
-  return <div className="py-4 border-b">{children}</div>;
-};
-
 const Body = ({ children }: { children: React.ReactNode }) => {
   const defaultClassName = "pb-4";
   return <div className={classNames(defaultClassName)}>{children}</div>;
@@ -50,5 +46,5 @@ const Title = ({ children }: { children: React.ReactNode }) => {
   return <p className="text-xl font-semibold leading-8 px-4 pt-4">{children}</p>;
 };
 
-export { Header, Body, Title, Actions, Content };
+export { Body, Title, Actions, Content };
 export default Card;
