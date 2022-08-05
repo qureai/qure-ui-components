@@ -16,4 +16,4 @@ export const sizes: Record<SIZES, string> = {
 };
 
 export const defaultStyles =
-  "inline-flex items-center font-medium rounded focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all";
+  "inline-flex items-center text-center justify-center min-w-[90px] font-medium rounded focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all";

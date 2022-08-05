@@ -1,5 +1,7 @@
 import React from "react";
-import Card from "../composite/Card";
+import Button from "../composite/Button";
+import Card, { Content } from "../composite/Card";
+import { Body, Header, Title, Actions } from "../composite/Card";
 import CustomTemplate from "./customTemplate";
 
 export default {
@@ -12,28 +14,23 @@ const Template = CustomTemplate(Card);
 export const SimpleCard = Template.bind({});
 SimpleCard.args = {
   children: (
-    <Card.Body>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque totam porro
-      nisi delectus cumque atque ex dolores mollitia eaque voluptatibus optio,
-      maxime quibusdam minima, dolorem adipisci obcaecati alias corporis libero!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque totam porro
-      nisi delectus cumque atque ex dolores mollitia eaque voluptatibus optio,
-      maxime quibusdam minima, dolorem adipisci obcaecati alias corporis libero!
-    </Card.Body>
-  ),
-};
-
-export const CardWithHeader = Template.bind({});
-CardWithHeader.args = {
-  children: (
     <>
-      <Card.Header>A Header</Card.Header>
-      <Card.Body>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque totam
-        porro nisi delectus cumque atque ex dolores mollitia eaque voluptatibus
-        optio, maxime quibusdam minima, dolorem adipisci obcaecati alias
-        corporis libero!
-      </Card.Body>
+      <Body>
+        <Title>Simple Card</Title>
+        <Content>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque totam
+          porro nisi delectus cumque atque ex dolores mollitia eaque
+          voluptatibus optio, maxime quibusdam minima, dolorem adipisci
+          obcaecati alias corporis libero! Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Neque totam porro nisi delectus cumque
+          atque ex dolores mollitia eaque voluptatibus optio, maxime quibusdam
+          minima, dolorem adipisci obcaecati alias corporis libero!
+        </Content>
+        <Actions>
+          <Button variant="secondary">No</Button>
+          <Button variant="secondary">Yes</Button>
+        </Actions>
+      </Body>
     </>
   ),
 };
@@ -41,30 +38,28 @@ CardWithHeader.args = {
 export const CardWithTitle = Template.bind({});
 CardWithTitle.args = {
   children: (
-    <>
-      <Card.Body>
-        <Card.Title>A Title</Card.Title>
+    <Body>
+      <Title>A Title</Title>
+      <Content>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque totam
         porro nisi delectus cumque atque ex dolores mollitia eaque voluptatibus
         optio, maxime quibusdam minima, dolorem adipisci obcaecati alias
         corporis libero!
-      </Card.Body>
-    </>
+      </Content>
+    </Body>
   ),
 };
 
-export const CardWithSubTitle = Template.bind({});
-CardWithSubTitle.args = {
+export const CardBody = Template.bind({});
+CardBody.args = {
   children: (
-    <>
-      <Card.Body>
-        <Card.Title>A Title</Card.Title>
-        <Card.SubTitle>A SubTitle</Card.SubTitle>
+    <Body>
+      <Content>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque totam
         porro nisi delectus cumque atque ex dolores mollitia eaque voluptatibus
         optio, maxime quibusdam minima, dolorem adipisci obcaecati alias
         corporis libero!
-      </Card.Body>
-    </>
+      </Content>
+    </Body>
   ),
 };

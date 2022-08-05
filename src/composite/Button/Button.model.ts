@@ -4,7 +4,7 @@ export default interface IButton {
   children: ReactNode;
   variant?: VARIANTS;
   size?: SIZES;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export type VARIANTS = "primary" | "secondary" | "link";
