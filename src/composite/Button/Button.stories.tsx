@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "../composite/Button";
-import CustomTemplate from "./customTemplate";
+import Button from ".";
+import CustomTemplate from "../../stories/customTemplate";
 
 export default {
   title: "Elements/Button",

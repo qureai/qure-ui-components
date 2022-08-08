@@ -10,7 +10,7 @@ export default function CustomTemplate<T>(
     return (
       <div
         className={classNames({
-          "w-full max-w-xs mr-auto": !noDefaultClassName,
+          "w-full max-w-xs mx-auto": !noDefaultClassName,
         })}
       >
         <Component {...args} />

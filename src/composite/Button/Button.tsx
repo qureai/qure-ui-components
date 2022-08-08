@@ -1,7 +1,7 @@
 import * as React from "react";
 import classNames from "classnames";
-import IButton from "./Button.model";
 import { defaultStyles, sizes, variants } from "./constants";
+import {IButton} from './'
 
 const Button = (props: IButton) => {
   const {

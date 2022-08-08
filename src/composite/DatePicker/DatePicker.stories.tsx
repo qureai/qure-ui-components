@@ -1,5 +1,5 @@
-import DatePicker from "../composite/DatePicker";
-import CustomTemplate from "./customTemplate";
+import DatePicker from ".";
+import CustomTemplate from "../../stories/customTemplate";
 
 export default {
   title: "Composite/DatePicker",

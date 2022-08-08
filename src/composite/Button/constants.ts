@@ -1,4 +1,4 @@
-import { SIZES, VARIANTS } from "./Button.model";
+import { SIZES, VARIANTS } from "./model";
 
 export const variants: Record<VARIANTS, string> = {
   primary:

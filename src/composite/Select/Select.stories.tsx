@@ -1,6 +1,6 @@
 import React from "react";
-import Select from "../composite/Select";
-import CustomTemplate from "./customTemplate";
+import Select from ".";
+import CustomTemplate from "../../stories/customTemplate";
 
 export default {
   title: "Elements/Select",

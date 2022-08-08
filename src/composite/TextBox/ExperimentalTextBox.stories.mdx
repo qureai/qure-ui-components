@@ -1,0 +1,79 @@
+import {
+  Meta,
+  ColorPalette,
+  ColorItem,
+  ArgsTable,
+  Story,
+  Canvas,
+} from "@storybook/addon-docs";
+import TextBox from "./";
+
+export const TextBoxTemplate = (args) => (
+  <div
+    className="w-full max-w-xs mx-auto"
+    style={{ background: "white", padding: "30px" }}
+  >
+    <TextBox {...args} />
+  </div>
+);
+
+<Meta title="Experiment" />
+
+# TextBox
+
+export const textBoxArgTypes = {
+  label: "your name",
+  placeholder: "enter your name",
+  type: "text",
+  inputMode: "text",
+  maxLength: 30,
+  id: "text_field",
+};
+
+export const argTypes = { inputRef: { table: { disable: true } } };
+
+An input field includes a label and a text field users can type text into.
+
+## Usage
+
+```javascript
+import React from "react";
+import { InputField } from "@cred/neopop-web/lib/components";
+
+const InputFieldExample = () => {
+  return (
+    <div>
+      <InputField
+        type="text"
+        label="your name"
+        placeholder="enter your name"
+        id="text_field"
+        autoFocus
+      />
+    </div>
+  );
+};
+
+export default InputFieldExample;
+```
+
+## Variant
+
+<Canvas>
+  <Story name="TextBox" args={{ ...textBoxArgTypes }} argTypes={argTypes}>
+    {TextBoxTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+| prop      | description                                                  | type      |
+|-----------|--------------------------------------------------------------|-----------|
+| label     | Text to show as label. If not passed, no label will be shown | ReactNode |
+| hasError  | indicates whether to show error message                      | boolean   |
+| onChange* | event when the user commits a value change to a form control | function  |
+
+</div>
+

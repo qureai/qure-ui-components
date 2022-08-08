@@ -1,4 +1,4 @@
-export interface ISelect {
+export default interface ISelect {
   name: string;
   noLabel: boolean;
   defaultValue: string | number;

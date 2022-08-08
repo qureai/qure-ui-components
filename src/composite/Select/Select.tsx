@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ISelect } from "./Select.model";
+import { ISelect } from "./";
 
 const Select = (props: ISelect) => {
   const { noLabel, name, defaultValue, options, handleChange } = props;

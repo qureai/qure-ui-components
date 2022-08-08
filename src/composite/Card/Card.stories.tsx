@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../composite/Button";
-import Card, { Content } from "../composite/Card";
-import { Body, Title, Actions } from "../composite/Card";
-import CustomTemplate from "./customTemplate";
+import Button from "../Button";
+import Card, { Content } from ".";
+import { Body, Title, Actions } from ".";
+import CustomTemplate from "../../stories/customTemplate";
 
 export default {
   title: "Elements/Card",

@@ -5,9 +5,9 @@ import Meta, {
   Primary as PrimaryStory,
   Secondary as SecondaryStory,
   Link as LinkStory,
-} from "../../../stories/Button.stories";
+} from "../Button.stories";
 import { defaultStyles, sizes, variants } from "../constants";
-import IButton, { SIZES, VARIANTS } from "../Button.model";
+import { SIZES, VARIANTS } from "../model";
 
 const getClassName = (variant: VARIANTS, size: SIZES) => {
   const defaultStylesAsClassNames = defaultStyles;
@@ -19,6 +19,7 @@ const getClassName = (variant: VARIANTS, size: SIZES) => {
 
 describe("Primary Button", () => {
   const Primary = composeStory(PrimaryStory, Meta);
+
   it("renders with default args", () => {
     render(<Primary />);
     const buttonElement = screen.getByRole("button");

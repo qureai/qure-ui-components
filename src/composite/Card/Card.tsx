@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import React from "react";
-import { ALIGN, ICard } from "./Card.model";
-import "./index.css";
+import { ALIGN, ICard } from "./model";
 
 const defaultPadding = "";
 
