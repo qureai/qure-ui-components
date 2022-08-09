@@ -39,7 +39,7 @@ export const args = {
 export const argTypes = { inputRef: { table: { disable: true } } };
 
 <Canvas>
-  <Story name="TextBox" args={{ ...args }} argTypes={argTypes}>
+  <Story name="DebouncedTextBox" args={{ ...args }} argTypes={argTypes}>
     {TextBoxTemplate.bind({})}
   </Story>
 </Canvas>
