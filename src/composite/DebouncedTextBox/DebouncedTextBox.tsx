@@ -1,23 +1,12 @@
 import * as React from "react";
 import { TDebouncedTextBox } from "./model";
 import TextBox from "../TextBox";
+import _ from "lodash";
 
 const DebounceTextBox = (props: TDebouncedTextBox) => {
   const { onChange, timeout, ...rest } = props;
 
-  const debouncedOnChange = () => {
-    let timer: NodeJS.Timeout;
-
-    return (e: React.ChangeEvent<any>) => {
-      e.persist();
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        onChange(e);
-      }, timeout);
-    };
-  };
-
-  const fn = debouncedOnChange();
+  const fn = _.debounce(onChange, timeout)
 
   return <TextBox onChange={fn} {...rest} />;
 };
