@@ -1,7 +1,10 @@
+import React from "react";
+
 export default interface ISelect {
-  name: string;
-  noLabel: boolean;
-  defaultValue: string | number;
-  options: { label: string; value: string | number }[];
-  handleChange: (value: string | number) => void;
+  name?: string;
+  label?: string;
+  className?: string;
+  defaultValue?: string | number;
+  options?: { label: string; value: string | number }[];
+  handleChange?: (e: React.ChangeEvent<any>) => void;
 }
