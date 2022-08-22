@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { useFormik } from "formik";
 import FormikTextBox from ".";
 import * as yup from "yup";
@@ -7,20 +7,9 @@ import { IFormikTextBox } from "./model";
 import CustomTemplate from "../../stories/customTemplate";
 
 export default {
-  title: "Formik/TextBox",
+  title: "Form/FormikTextBox",
   component: FormikTextBox,
-  argTypes: {
-    formObject: {
-      name: "formObject",
-      type: { name: "object", required: true },
-      description: "The output of `useFormik()` hook",
-      table: {
-        type: { summary: "object" },
-      },
-      control: null,
-    },
-  },
-};
+} as ComponentMeta<typeof FormikTextBox>;
 
 const TextBox = <K,>(props: IFormikTextBox<K>) => {
   const { name, label, type, formObject, ...rest } = props;

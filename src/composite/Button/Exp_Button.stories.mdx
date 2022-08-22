@@ -25,10 +25,15 @@ export const argTypes = { inputRef: { table: { disable: true } } };
 
 The Button component will render whatever is passed as in its enclosing tag as its children
 
+
+<Canvas>
+  <Button>Button</Button>
+</Canvas>
+
 ## Usage
 
 ```jsx
-import React from "react";
+import { Button } from "@qure-ui-components";
 
 export const ExampleButton = () => {
   return <Button>Some Button</Button>;
