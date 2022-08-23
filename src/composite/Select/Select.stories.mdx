@@ -1,0 +1,119 @@
+import { Meta, ArgsTable, Story, Canvas } from "@storybook/addon-docs";
+import Select from ".";
+import CustomTemplate from "../../stories/customTemplate";
+
+export const SelectTemplate = (args) => {
+  return (
+    <div className="w-full max-w-xs mx-auto">
+      <Select {...args} />
+    </div>
+  );
+};
+
+<Meta title="Form/Select" />
+
+# Select
+
+export const argTypes = { inputRef: { table: { disable: true } } };
+
+export const simpleSelectArgs = {
+  options: [
+    {
+      label: "Apple",
+      value: "apple",
+    },
+    {
+      label: "Orange",
+      value: "orange",
+    },
+    {
+      label: "Tomato",
+      value: "tomato",
+    },
+  ],
+  label: "Fruits",
+  name: "fruits",
+};
+
+<Canvas>
+  <Story name="Select" args={{ ...simpleSelectArgs }} argTypes={argTypes}>
+    {SelectTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Usage
+
+```javascript
+import React from 'react';
+import { Select } from '@qure-ui-components'
+
+export default function () {
+  const [value, setValue] = React.useState()
+  const options = [
+    {
+      label: "Apple",
+      value: "apple",
+    },
+    {
+      label: "Orange",
+      value: "orange",
+    },
+    {
+      label: "Tomato",
+      value: "tomato",
+    },
+  ];
+  const handleChange = (e: React.ChangeEvent<any>) => {
+    setValue(((e.target) as HTMLInputElement).value)
+  }
+  return (
+    <Select name="fruits" label="Fruits" options={options} handleChange={handleChange} />
+  )
+}
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+| prop         | description                                      | type                                  |
+| ------------ | ------------------------------------------------ | ------------------------------------- |
+| name         | string passed to name attribute                  | string                                |
+| label        | string that shows up as label for the select tag | string                                |
+| defaultValue | default value to show on first render            | string                                |
+| options      | An array of options                              | `{label: string, value: string} []`   |
+| handleChange | fn that is called on selecting an option         | `(e: React.ChangeEvent<any>) => void` |
+
+</div>
+
+## Variants
+
+Select without label
+
+export const noLabelArgs = {
+  label: "",
+  options: [
+    {
+      label: "Apple",
+      value: "apple",
+    },
+    {
+      label: "Orange",
+      value: "orange",
+    },
+    {
+      label: "Tomato",
+      value: "tomato",
+    },
+  ],
+};
+
+<Canvas>
+  <Story
+    name="Select With No Label"
+    args={{ ...noLabelArgs }}
+    argTypes={argTypes}
+  >
+    {SelectTemplate.bind({})}
+  </Story>
+</Canvas>

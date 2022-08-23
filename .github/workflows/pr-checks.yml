@@ -18,8 +18,8 @@ jobs:
       - name: Install
         run:  npm ci && npx npm-install-peers
       - name: Lint
-        run: 'echo to be built'
+        run:  npm run lint
       - name: Test
-        run: 'echo to be built'
+        run:  npm test
       - name: Build the storybook static
         run : npm run build-storybook

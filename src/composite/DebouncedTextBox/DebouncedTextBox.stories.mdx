@@ -1,0 +1,79 @@
+import {
+  Meta,
+  ColorPalette,
+  ColorItem,
+  ArgsTable,
+  Story,
+  Canvas,
+} from "@storybook/addon-docs";
+import DebouncedTextBox from "./";
+
+export const TextBoxTemplate = (args) => {
+  const [value, setValue] = React.useState("");
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+  return (
+    <div
+      className="w-full max-w-xs mx-auto"
+      style={{ background: "white", padding: "30px" }}
+    >
+      <DebouncedTextBox {...args} onChange={handleChange} />
+      <p className="text-sm opacity-60">{value}</p>
+    </div>
+  );
+};
+
+<Meta title="Form/DebouncedTextBox" />
+
+# DebouncedTextBox
+
+This version of text box comes with debounced `onChange` that will trigger only after certain time
+
+export const args = {
+  label: "Name",
+  placeholder: "Enter Name",
+  timeout: 1000,
+};
+
+export const argTypes = { inputRef: { table: { disable: true } } };
+
+<Canvas>
+  <Story name="DebouncedTextBox" args={{ ...args }} argTypes={argTypes}>
+    {TextBoxTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Usage
+
+```javascript
+import React from "react";
+import { DebouncedTextBox } from "@qure-ui-components";
+
+const DebounceExample = () => {
+  const [value, setValue] = React.useState('')
+  const timeout = 1000
+  const onChange = (e: React.ChangeEvent<any>) => {
+    setValue(e.target.value)
+  }
+
+  return (
+    <DebouncedTextBox
+      timeout={timeout}
+      onChange={onChange}
+    />
+  )
+}
+```
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+| prop       | description                                                                                                        | type                                  |
+|------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| timeout    | A timeout value that is passed to debounce fn.  The fn will wait until this time to call any other subsquent calls | number                                |
+| onChange   | The original onChange function.  Eg: A `setState` fn                                                               | `(e: React.ChangeEvent<any>) => void` |
+| otherProps | Every other `<input />` props except for `value`                                                                   | object                                |
+
+</div>

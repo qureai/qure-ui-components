@@ -1,0 +1,104 @@
+import {
+  Meta,
+  ArgsTable,
+  Story,
+  Canvas,
+} from "@storybook/addon-docs";
+import TextBox from "./";
+
+export const TextBoxTemplate = (args) => (
+  <div
+    className="w-full max-w-xs mx-auto"
+    style={{ background: "white", padding: "30px" }}
+  >
+    <TextBox {...args} />
+  </div>
+);
+
+<Meta title="Experiment/TextBox" />
+
+# TextBox
+
+export const textBoxArgTypes = {
+  label: "your name",
+  placeholder: "enter your name",
+  type: "text",
+  id: "text_field",
+};
+
+export const textBoxNoLabelArgTypes = {
+  placeholder: "enter your password",
+  type: "password",
+  id: "text_field",
+};
+
+export const textBoxTypeNumberArgTypes = {
+  label: 'phone number',
+  placeholder: "enter your phone number",
+  type: "number",
+  id: "text_field",
+};
+
+export const argTypes = { inputRef: { table: { disable: true } } };
+
+An input field includes a label and a text field users can type text into.
+
+<Canvas>
+  <Story name="Text" args={{ ...textBoxArgTypes }} argTypes={argTypes}>
+    {TextBoxTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Usage
+
+```javascript
+import React from "react";
+import { TextBox } from "@qure-ui-components";
+
+const TexBoxExample = () => {
+  return (
+    <TextBox
+      type="text"
+      label="your name"
+      placeholder="enter your name"
+      id="text_field"
+    />
+  );
+};
+
+export default TexBoxExample;
+```
+
+## Variant
+
+<Canvas>
+  <Story
+    name="Number"
+    args={{ ...textBoxTypeNumberArgTypes }}
+    argTypes={argTypes}
+  >
+    {TextBoxTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="No Label"
+    args={{ ...textBoxNoLabelArgTypes }}
+    argTypes={argTypes}
+  >
+    {TextBoxTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<div style={{overflowX: 'auto'}}>
+
+| prop       | description                                                  | type      |
+| ---------- | ------------------------------------------------------------ | --------- |
+| label      | Text to show as label. If not passed, no label will be shown | ReactNode |
+| hasError   | indicates whether to show error message                      | boolean   |
+| otherProps | supports all other input props                               |           |
+
+</div>

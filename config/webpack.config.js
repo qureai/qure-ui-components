@@ -1,92 +1,85 @@
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const MinifyPlugin = require('babel-minify-webpack-plugin')
-const webpack = require('webpack')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // installed via npm
-const PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
-const packageJson = require('../package.json')
+import { resolve as _resolve } from "path";
+import MiniCssExtractPlugin, {
+  loader as _loader,
+} from "mini-css-extract-plugin";
+import MinifyPlugin from "babel-minify-webpack-plugin";
+import { ProgressPlugin } from "webpack";
+import { CleanWebpackPlugin } from "clean-webpack-plugin"; // installed via npm
+import PeerDepsExternalsPlugin from "peer-deps-externals-webpack-plugin";
+import { name, peerDependencies } from "../package.json";
 
-const pathTo = (p) => path.resolve(process.cwd(), p)
-module.exports = {
-  // mode: 'development',
-  mode: 'production',
-  entry : pathTo('src/index.js'),
-  // entry: {
-  //   'main': ['src/components/index.js', 'src/scss/index.scss'].map(pathTo),
-  // },
-  output: {
-    path: path.resolve(process.cwd(), 'dist'),
-    filename: '[name].js',
-    library: packageJson.name,
-    libraryTarget: 'umd',
-    globalObject: "typeof self !== 'undefined' ? self : this"
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            babelrc: true,
-            // presets: [
-            //   require.resolve('@babel/preset-react'), [
-            //     require.resolve('@babel/preset-env'), {modules: false}]],
-          },
+const pathTo = (p) => _resolve(process.cwd(), p);
+export const mode = "production";
+export const entry = pathTo("src/index.js");
+export const output = {
+  path: _resolve(process.cwd(), "dist"),
+  filename: "[name].js",
+  library: name,
+  libraryTarget: "umd",
+  globalObject: "typeof self !== 'undefined' ? self : this",
+};
+export const module = {
+  rules: [
+    {
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          babelrc: true,
         },
       },
-      {
-        test: /\.s[ac]ss$/i,
-        exclude: /node_modules/,
-        use: [
-          // Creates `style` nodes from JS strings
-          process.env.NODE_ENV !== 'production'
-            ? 'style-loader'
-            : MiniCssExtractPlugin.loader,
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(svg|eot|woff|woff2|ttf)$/,
-        use: [{
-          loader: 'file-loader?name=[name].[ext]'
-        }],
-
-      }
-    ],
-  },
-  resolve: {
-    alias: {
-      react: path.resolve(__dirname, './node_modules/react'),
     },
-  },
-  plugins: [
-    new webpack.ProgressPlugin(),
-    new CleanWebpackPlugin(),
-    // new PeerDepsExternalsPlugin(),
-    new MinifyPlugin(),
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    }),
+    {
+      test: /\.s[ac]ss$/i,
+      exclude: /node_modules/,
+      use: [
+        // Creates `style` nodes from JS strings
+        process.env.NODE_ENV !== "production" ? "style-loader" : _loader,
+        // Translates CSS into CommonJS
+        "css-loader",
+        // Compiles Sass to CSS
+        {
+          loader: "sass-loader",
+          options: {
+            sourceMap: true,
+          },
+        },
+      ],
+    },
+    {
+      test: /\.(svg|eot|woff|woff2|ttf)$/,
+      use: [
+        {
+          loader: "file-loader?name=[name].[ext]",
+        },
+      ],
+    },
   ],
-  stats : {
-    colors: true,
-    depth: true,
-    entrypoints: true,
-    logging: 'none'
+};
+export const resolve = {
+  alias: {
+    react: _resolve(__dirname, "./node_modules/react"),
+    stories: _resolve(__dirname, "./src/stories"),
+    composite: _resolve(__dirname, "./src/composite"),
   },
-  externals: Object.keys(packageJson.peerDependencies)
-}
+};
+export const plugins = [
+  new ProgressPlugin(),
+  new CleanWebpackPlugin(),
+  // new PeerDepsExternalsPlugin(),
+  new MinifyPlugin(),
+  new MiniCssExtractPlugin({
+    // Options similar to the same options in webpackOptions.output
+    // both options are optional
+    filename: "[name].css",
+    chunkFilename: "[id].css",
+  }),
+];
+export const stats = {
+  colors: true,
+  depth: true,
+  entrypoints: true,
+  logging: "none",
+};
+export const externals = Object.keys(peerDependencies);
