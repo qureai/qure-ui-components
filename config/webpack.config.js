@@ -5,7 +5,6 @@ import MiniCssExtractPlugin, {
 import MinifyPlugin from "babel-minify-webpack-plugin";
 import { ProgressPlugin } from "webpack";
 import { CleanWebpackPlugin } from "clean-webpack-plugin"; // installed via npm
-import PeerDepsExternalsPlugin from "peer-deps-externals-webpack-plugin";
 import { name, peerDependencies } from "../package.json";
 
 const pathTo = (p) => _resolve(process.cwd(), p);

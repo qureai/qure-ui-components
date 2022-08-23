@@ -1,23 +1,58 @@
 {
-  "name": "@qure/components",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@qureai/qure-ui-components",
+  "version": "0.1.0",
+  "description": "Qure.AI UI components library",
   "main": "dist/main.js",
+  "author": "Qure Team",
+  "license": "ISC",
   "scripts": {
+    "start": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "test": "jest",
     "test:watch": "jest --watch",
-    "start": "start-storybook -p 6006",
     "lint": "eslint src/ ",
     "lint:fix": "npm run lint -- --fix",
     "lint:watch": "watch 'npm run lint' .",
-    "build-storybook": "build-storybook",
-    "bundlesize": "bundlesize",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.config.js",
-    "profile": "cross-env NODE_ENV=production webpack --profile --json --config config/webpack.config.js > profile.json && webpack-bundle-analyzer profile.json"
+    "profile": "cross-env NODE_ENV=production webpack --profile --json --config config/webpack.config.js > profile.json && webpack-bundle-analyzer profile.json",
+    "bundlesize": "bundlesize"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "publishConfig": {
+    "@qureai:registry": "https://npm.pkg.github.com"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add --force"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add --force"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@mantine/core": "^4.2.12",
+    "@mantine/dates": "^4.2.12",
+    "@mantine/hooks": "^4.2.12",
+    "@tailwindcss/forms": "^0.5.2",
+    "dayjs": "^1.11.3",
+    "formik": "^2.2.9",
+    "react": "^17.0.2",
+    "react-debounce-input": "^3.3.0",
+    "react-dom": "^17.0.2",
+    "yup": "^0.32.11"
+  },
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@storybook/addon-actions": "^6.5.9",
@@ -76,43 +111,10 @@
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^3.3.11"
   },
-  "dependencies": {
-    "@mantine/core": "^4.2.12",
-    "@mantine/dates": "^4.2.12",
-    "@mantine/hooks": "^4.2.12",
-    "@tailwindcss/forms": "^0.5.2",
-    "dayjs": "^1.11.3",
-    "formik": "^2.2.9",
-    "react": "^17.0.2",
-    "react-debounce-input": "^3.3.0",
-    "react-dom": "^17.0.2",
-    "yup": "^0.32.11"
-  },
   "peerDependencies": {
     "classnames": "^2.2.6",
     "lodash": "^4.17.20",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add --force"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add --force"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }

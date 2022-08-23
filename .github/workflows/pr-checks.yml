@@ -6,9 +6,12 @@ on:
 
 name: Pull request required checks
 
+
 jobs:
   linting-and-testing:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{secrets.GH_TOKEN}}
     steps:
       - name: Checkout
         uses: actions/checkout@master
