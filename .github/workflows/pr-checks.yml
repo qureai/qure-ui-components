@@ -1,0 +1,25 @@
+on:
+  pull_request:
+    types: [ 'opened', 'edited', 'synchronize' ]
+  push:
+    paths: [ "stories/**", "src/**" ]
+
+name: Pull request required checks
+
+jobs:
+  linting-and-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install
+        run:  npm ci && npx npm-install-peers
+      - name: Lint
+        run: 'echo to be built'
+      - name: Test
+        run: 'echo to be built'
+      - name: Build the storybook static
+        run : npm run build-storybook
