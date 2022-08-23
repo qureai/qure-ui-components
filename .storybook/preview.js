@@ -1,4 +1,4 @@
-import "../dist/output.css";
+import "../src/index.css";
 import { themes, ThemeProvider } from "@storybook/theming";
 import { select } from "@storybook/addon-controls";
 
