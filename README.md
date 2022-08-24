@@ -1,17 +1,12 @@
-import { Meta } from '@storybook/addon-docs';
+# Qure UI components library 
 
-<Meta title="Introduction" />
-
-
-# Welcome to Qure Components library
+Welcome to Qure Components library
 
 This site contains the documentation on library usage into any project, detailed information
 on each and every component usage, its props documents.
 
 For supported components, you will see the UI controls to change its props from this site itself
 
-
-[//]: # (<div className="subheading">Install</div>)
 
 ## Install
 
@@ -36,11 +31,6 @@ Now, after successful login, install this library with following command
 npm i @qureai/qure-ui-components
 ```
 
-## How this site is organised
+## Documentations
 
-Components are divided into following categories and on sidebar you should see those categories as the headers
-
-* Composite
-* Form elements
-* Layout
-
+You can find the documentation for available components can be found here - https://ui.qure.ai/
