@@ -1,19 +1,11 @@
 import React from "react";
+import { ComponentStory } from "@storybook/react";
 import Button from ".";
-import CustomTemplate from "../../stories/customTemplate";
 
-export default {
-  title: "Elements/Button",
-  component: Button,
-  parameters: {
-    docs: {},
-  },
-};
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-const Template = CustomTemplate(Button);
-
-export const Primary = Template.bind({});
-Primary.args = {
+export const Basic = Template.bind({});
+Basic.args = {
   children: "Button",
   onClick: () => {
     console.log("clicked");
@@ -28,7 +20,7 @@ Secondary.args = {
 
 export const Link = Template.bind({});
 Link.args = {
-  children: "Button",
+  children: "Link",
   variant: "link",
 };
 
@@ -54,3 +46,30 @@ Large.args = {
   children: "Large",
   size: "large",
 };
+
+export const Variants = () => (
+  <>
+    <Button className="mx-3">Primary</Button>
+    <Button className="mx-3" variant="secondary">
+      Secondary
+    </Button>
+    <Button className="mx-3" variant="link">
+      Link
+    </Button>
+  </>
+);
+
+export const Sizes = () => (
+  <>
+    <Button className="mx-3" size="small">
+      Primary
+    </Button>
+    <Button className="mx-3"> Primary </Button>
+    <Button className="mx-3" size="medium">
+      Primary
+    </Button>
+    <Button className="mx-3" size="large">
+      Primary
+    </Button>
+  </>
+);

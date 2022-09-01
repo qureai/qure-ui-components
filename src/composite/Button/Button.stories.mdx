@@ -1,0 +1,48 @@
+import { Meta, Story, ArgsTable, Canvas } from "@storybook/addon-docs/blocks";
+import * as stories from "./Button.stories";
+import Button from "./";
+
+<Meta title="Elements/Button" component={Button} />
+
+# Button
+
+A Button component that renders its children with styles applied
+
+<Canvas>
+  <Story story={stories.Basic} />
+</Canvas>
+
+<ArgsTable of={Button} />
+
+## Usage
+
+```jsx
+import { Button } from "@qure-ui-components";
+
+export const ExampleButton = () => {
+  return <Button>Some Button</Button>;
+};
+```
+
+## Variants
+
+This button component comes with three variants
+
+- primary
+- secondary
+- link
+
+<Canvas>
+  <Story story={stories.Variants} />
+</Canvas>
+
+and in four sizes
+
+- small
+- normal
+- medium
+- large
+
+<Canvas>
+  <Story story={stories.Sizes} />
+</Canvas>
